@@ -93,9 +93,9 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "MovingCompany"],
   name: "RIT TRANZ",
-  url: "https://rittranz.co.uk/",
-  logo: "https://rittranz.co.uk/assets/rit-tranz-logo.png",
-  image: "https://rittranz.co.uk/assets/rit-tranz-logo.png",
+  url: "https://www.rittranz.co.uk/",
+  logo: "https://www.rittranz.co.uk/assets/rit-tranz-logo.png",
+  image: "https://www.rittranz.co.uk/assets/rit-tranz-logo.png",
   telephone: "+447584201972",
   areaServed: {
     "@type": "AdministrativeArea",

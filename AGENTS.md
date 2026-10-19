@@ -1,41 +1,40 @@
-# figma-make-app
+# RIT TRANZ website
 
-React + Vite + Tailwind CSS project running inside Figma Make.
+Marketing website for RIT TRANZ, a man and van service in Bristol. Built with React, Vite and Tailwind CSS, hosted on Vercel at https://www.rittranz.co.uk.
 
-## Development Server
+## Development
 
-A Vite development server is **already running** on `$PORT` (default 8443). You don't need to start it manually.
+Uses pnpm (`pnpm-lock.yaml` is the lockfile; Node 22, see `.mise.toml`).
 
-- Preview URL: The user can access the running app through the preview panel
-- Hot reload: Changes to source files are reflected immediately
+- `pnpm install` - install dependencies
+- `pnpm dev` - start the dev server at http://localhost:5173
+- `pnpm build` - production build into `dist/`
+- `pnpm preview` - serve the production build locally
 
-## Project Structure
+Every push to `master` on GitHub deploys to Vercel automatically.
 
-This is the canonical project structure. Start with task-relevant files below. Only follow imports or inspect other files when required, when a documented path is missing, or when the repository contradicts this guide.
+## Project structure
 
-- `src/main.tsx` - React entrypoint; imports `src/index.css` and mounts `src/App.tsx` into the `#root` element
-- `src/App.tsx` - Primary application component and the usual starting point for UI work
-- `src/index.css` - Global CSS entrypoint and Tailwind CSS v4 import
-- `index.html` - Vite HTML shell containing the `#root` element and loading `src/main.tsx`
-- `package.json` - Project dependencies and the Vite build, development, preview, and formatting scripts
-- `vite.config.ts` - Vite configuration with React, Tailwind CSS v4, and Figma Make plugins plus the `@` alias for `src`
-- `.mise.toml` - Toolchain versions for Node.js and pnpm
-
-## Dependencies
-
-- Runtime: React 19 and React DOM 19
-- Styling: Tailwind CSS v4 with the `@tailwindcss/vite` plugin
-- Build tooling: Vite 8, TypeScript 5.7, and `@vitejs/plugin-react`
-- Formatting: oxfmt
+- `index.html` - HTML shell: page title, meta description, link-preview tags and favicons
+- `src/main.tsx` - React entrypoint; imports `src/index.css` and mounts `src/app/App.tsx`
+- `src/app/routes.ts` - URL to page mapping (`/`, `/services`, `/pricing`, `/about`, `/contact`, `/privacy`, `/terms`)
+- `src/pages/` - one file per page; each page composes section components
+- `src/components/layout/` - header, footer, page shell and CTA shared by the inner pages
+- `src/components/home/`, `services/`, `pricing/`, `about/`, `contact/` - sections for each page
+- `src/components/icons/` - SVG icon components
+- `src/data/` - page content (services, FAQs, pricing plans, links, SEO schema)
+- `src/utils/whatsapp.ts` - builds and opens the WhatsApp quote messages
+- `src/index.css` - global CSS and Tailwind CSS v4 import
+- `public/` - static files served as-is (logo, map image, favicons). Stored as normal git files, not Git LFS, so Vercel receives them.
+- `vercel.json` - sends every route to `index.html` so refreshing inner pages works
 
 ## Styling
 
-This project uses **Tailwind CSS v4** through the `@tailwindcss/vite` plugin configured in `vite.config.ts`. `src/index.css` imports Tailwind with `@import 'tailwindcss';`. Use Tailwind utility classes directly in JSX and put global CSS or Tailwind v4 theme customization in `src/index.css`. This scaffold does not need a Tailwind config file or PostCSS config.
-
-`src/main.tsx` imports `src/index.css`, so global font wiring belongs in `src/index.css`. Keep CSS `@import` statements first, then add any `@font-face` rules and font-family defaults there.
+Tailwind CSS v4 through the `@tailwindcss/vite` plugin. Use utility classes in JSX; put global CSS and theme customisation in `src/index.css` (keep `@import` statements first). No Tailwind or PostCSS config file is needed.
 
 ## Code quality
 
 - Use double quotes for strings containing apostrophes (`"We're here to help"`), or escape them in single-quoted strings. An unescaped apostrophe in a single-quoted string breaks the build.
 - Ensure JSX tags are closed and braces are balanced.
 - Export components as default exports.
+- Keep content (text, lists, prices) in `src/data/` rather than hard-coded in components where practical.
