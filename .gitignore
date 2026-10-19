@@ -1,0 +1,80 @@
+# ---------------------------------------------------------------------------
+# Dependencies
+# ---------------------------------------------------------------------------
+node_modules/
+.pnpm-store/
+
+# This project uses pnpm (pnpm-lock.yaml is the lockfile). Ignore lockfiles
+# from other package managers so they don't drift out of sync.
+package-lock.json
+yarn.lock
+bun.lockb
+
+# ---------------------------------------------------------------------------
+# Build output & caches
+# ---------------------------------------------------------------------------
+dist/
+dist-ssr/
+build/
+coverage/
+.cache/
+.vite/
+vite.config.*.timestamp-*
+*.tsbuildinfo
+.eslintcache
+.stylelintcache
+
+# ---------------------------------------------------------------------------
+# Environment variables (keep a committed .env.example as a template)
+# ---------------------------------------------------------------------------
+.env*
+!.env.example
+*.local
+
+# ---------------------------------------------------------------------------
+# Logs
+# ---------------------------------------------------------------------------
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ---------------------------------------------------------------------------
+# OS files
+# ---------------------------------------------------------------------------
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+# ---------------------------------------------------------------------------
+# Editors (share VS Code settings/extensions, ignore personal state)
+# ---------------------------------------------------------------------------
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------------------------------------------------------------------------
+# Tool & agent scratch files
+# ---------------------------------------------------------------------------
+.claude-replay.*
+.claude/settings.local.json
+.tmp-*
+/.figma/design-context/
+
+# Figma Make platform scripts. site.json stays tracked: vite.config.ts imports it.
+/.figma/make/*
+!/.figma/make/site.json
+
+# Platform-managed agentplat state, not project source. In the
+# client-initiated single-repo workspace layout (make's `Path: "."` spec) the
+# repo root IS the workspace root, so these land inside this repo rather than
+# beside it.
+/.plugins/
+/.opencode-skills/

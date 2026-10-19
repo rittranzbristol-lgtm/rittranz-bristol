@@ -1,0 +1,3 @@
+export default function PageHero({ eyebrow, title, intro }: { eyebrow: string; title: string; intro: string }) {
+  return <section className="relative overflow-hidden bg-[#071a3d] px-5 py-20 text-white sm:px-8 sm:py-28"><div className="page-hero-pattern absolute inset-0 opacity-30" /><div className="relative mx-auto max-w-[1240px]"><p className="text-xs font-bold tracking-[0.18em] text-[#ff5968]">{eyebrow}</p><h1 className="mt-5 max-w-[780px] text-5xl font-semibold leading-[1.02] tracking-[-0.055em] sm:text-7xl">{title}</h1><p className="mt-6 max-w-[650px] text-lg leading-8 text-white/70">{intro}</p></div></section>;
+}
