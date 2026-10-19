@@ -1,7 +1,7 @@
 {
   "description": "Offers reliable van transportation services with easy booking and clear service details, ensuring efficient logistics for businesses and individuals.",
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,
