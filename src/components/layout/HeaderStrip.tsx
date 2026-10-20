@@ -10,10 +10,21 @@ export default function HeaderStrip({ className, whatsAppIcon }: { className: st
       <div className="mx-auto flex h-full max-w-[1240px] items-center justify-between gap-3">
         {promo.enabled ? (
           <>
-            <span className="truncate text-white">
-              <span className="sm:hidden">🎓 {promo.shortText}</span>
-              <span className="hidden sm:inline">🎓 <strong className="font-bold">{promo.label}</strong> | {promo.text}</span>
-            </span>
+            <div className="marquee min-w-0 flex-1 text-[11px] text-white">
+              <div className="marquee-track">
+                {[0, 1].map((copy) => (
+                  <div key={copy} className="flex shrink-0" aria-hidden={copy === 1 || undefined}>
+                    {[0, 1, 2].map((item) => (
+                      <span key={item} className="whitespace-nowrap pr-10">
+                        🎓 <strong className="font-bold">{promo.label}</strong>
+                        <span className="px-2 text-white/40">|</span>
+                        {promo.text}
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
             <a href={whatsAppLink(promo.whatsAppMessage)} target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-[#e00016] px-3 py-1 font-bold text-white transition hover:bg-white hover:text-[#d10014]">
               {whatsAppIcon}
               <span className="sm:hidden">{promo.shortCta}</span>

@@ -160,6 +160,28 @@ a {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Scrolling promo text in the header strip. The track holds two identical
+   copies, so moving it by -50% loops seamlessly. */
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 14s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 @media (max-width: 1023px) {
   .hero-shade {
     background: linear-gradient(90deg, rgba(2, 15, 45, 0.72), rgba(2, 15, 45, 0.4));
@@ -186,6 +208,10 @@ a {
   }
 
   .quote-card {
+    animation: none;
+  }
+
+  .marquee-track {
     animation: none;
   }
 }

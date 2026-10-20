@@ -4,7 +4,6 @@ export const promo = {
   enabled: true,
   label: "Student offers running now",
   text: "12% off your student accommodation move",
-  shortText: "Students: 12% off your move",
   cta: "Grab your discount here",
   shortCta: "Grab discount",
   whatsAppMessage: "Hi RIT TRANZ, I'd like to claim the 12% student discount on my student accommodation move.",
