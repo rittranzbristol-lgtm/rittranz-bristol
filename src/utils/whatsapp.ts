@@ -8,7 +8,10 @@ export function formatDate(value: string) {
   return date.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" });
 }
 
+export function whatsAppLink(message: string) {
+  return `https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(message)}`;
+}
+
 export function openWhatsApp(lines: string[]) {
-  const message = lines.join("\n");
-  window.open(`https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+  window.open(whatsAppLink(lines.join("\n")), "_blank", "noopener,noreferrer");
 }

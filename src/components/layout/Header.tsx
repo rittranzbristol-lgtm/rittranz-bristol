@@ -4,12 +4,13 @@ import { facebookUrl, instagramUrl, navItems } from "../../data/site";
 import SocialIcon from "../icons/SocialIcon";
 import VanIcon from "../icons/VanIcon";
 import WhatsAppIcon from "../icons/WhatsAppIcon";
+import HeaderStrip from "./HeaderStrip";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="fixed inset-x-0 top-0 z-30 bg-[#071a3d]">
-      <div className="h-8 px-5 text-[10px] font-semibold text-white/70"><div className="mx-auto flex h-full max-w-[1240px] items-center justify-between"><span><span className="sm:hidden">Fully insured</span><span className="hidden sm:inline">Fully insured Bristol man &amp; van service</span></span><a href="https://wa.me/447584201972" className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#e00016] px-3 py-1 font-bold text-white"><WhatsAppIcon /><span className="sm:hidden">WhatsApp</span><span className="hidden sm:inline">WhatsApp replies in minutes</span></a></div></div>
+      <HeaderStrip className="h-8 px-5 text-[10px] font-semibold text-white/70" whatsAppIcon={<WhatsAppIcon />} />
       <div className="mx-auto flex h-[78px] max-w-[1240px] items-center justify-between border-x border-t border-[#dfe4ec] bg-white px-4 text-[#071a3d] shadow-xl sm:rounded-t-2xl sm:px-6">
         <Link to="/" className="flex items-center gap-3" aria-label="RIT TRANZ home">
           <span className="grid h-14 w-14 place-items-center overflow-hidden rounded-full border-2 border-white shadow-lg"><VanIcon /></span>
