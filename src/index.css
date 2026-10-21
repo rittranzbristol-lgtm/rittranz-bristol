@@ -7,6 +7,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keep in-page links (#quote, #services, ...) clear of the fixed header (106px) */
+  scroll-padding-top: 122px;
 }
 
 body {

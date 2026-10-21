@@ -5,7 +5,7 @@ export default function HowItWorksSection() {
     <section id="how-it-works" className="bg-[#071a3d] px-5 py-24 text-white sm:px-8 lg:py-28">
       <div className="mx-auto grid max-w-[1240px] items-center gap-14 lg:grid-cols-[.9fr_1.1fr]">
         <div className="relative min-h-[500px] overflow-hidden rounded-[28px]">
-          <img className="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1620455800201-7f00aeef12ed?auto=format&fit=crop&w=1200&q=85" alt="Professional mover loading boxes into a van" />
+          <img className="absolute inset-0 h-full w-full object-cover" src="/assets/bristol-van-st-nicholas-markets.jpg" alt="RIT TRANZ van on a narrow street by St Nicholas Markets, Bristol" />
           <a href="https://wa.me/447584201972" target="_blank" rel="noreferrer" className="group absolute bottom-5 left-5 right-5 rounded-2xl bg-white p-5 text-[#071a3d] shadow-xl transition hover:-translate-y-1 hover:bg-[#e00016] hover:text-white sm:right-auto sm:w-[310px]" aria-label="Message RIT TRANZ on WhatsApp for a same-day slot">
             <div className="flex items-center gap-3">
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#e00016] text-white transition group-hover:bg-white group-hover:text-[#071a3d]"><Icon name="whatsapp" size={22} /></span>
