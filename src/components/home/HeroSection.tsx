@@ -7,9 +7,9 @@ export default function HeroSection() {
   return (
     <section className="hero relative min-h-[800px] overflow-hidden bg-[#071a3d] text-white">
       <img
-        className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
-        src="https://images.unsplash.com/photo-1667389271333-83ef20e4ee07?auto=format&fit=crop&w=2200&q=88"
-        alt="White van ready for a local move"
+        className="absolute inset-0 h-full w-full object-cover object-center"
+        src="/assets/bristol-van-high-street.jpg"
+        alt="White RIT TRANZ van parked on a Bristol high street at dusk"
       />
       <div className="absolute inset-0 bg-[#020f2d]/75 lg:bg-transparent" />
       <div className="hero-shade absolute inset-0" />

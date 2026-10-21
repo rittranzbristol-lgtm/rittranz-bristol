@@ -3,7 +3,7 @@ export default function VanEquipment() {
     <section className="bg-[#071a3d] px-5 py-20 text-white sm:px-8 sm:py-28">
       <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
         <div className="relative min-h-[520px] overflow-hidden rounded-[28px]">
-          <img className="absolute inset-0 h-full w-full object-cover object-center" src="https://images.unsplash.com/photo-1769159511492-aa484c036c06?auto=format&fit=crop&w=1400&q=88" alt="Ford Transit Custom short wheelbase van" />
+          <img className="absolute inset-0 h-full w-full object-cover object-center" src="/assets/bristol-van-st-nicholas-markets.jpg" alt="RIT TRANZ Ford Transit Custom SWB van on a narrow street by St Nicholas Markets, Bristol" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#020f2d]/75 via-transparent to-transparent" />
           <div className="absolute inset-x-5 bottom-5 grid grid-cols-3 overflow-hidden rounded-2xl border border-white/15 bg-[#020f2d]/90 text-center backdrop-blur-md">
             {[["6.0 m³", "Load space"], ["800 kg", "Typical payload"], ["SWB", "Easy access"]].map(([value, label]) => (

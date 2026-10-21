@@ -17,8 +17,8 @@ export default function ServicesHero() {
         <div className="relative min-h-[540px] overflow-hidden lg:min-h-[650px]">
           <img
             className="absolute inset-0 h-full w-full object-cover object-center"
-            src="https://images.unsplash.com/photo-1769159511492-aa484c036c06?auto=format&fit=crop&w=1600&q=88"
-            alt="Modern Ford Transit Custom van ready for professional transport work"
+            src="/assets/bristol-van-wills-memorial.jpg"
+            alt="RIT TRANZ Ford Transit Custom van near the Wills Memorial Building, Bristol"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#020f2d]/45 via-transparent to-transparent lg:bg-gradient-to-r lg:from-[#071a3d]/25 lg:to-transparent" />
           <div className="absolute bottom-7 left-5 right-5 sm:bottom-9 sm:left-8 sm:right-auto sm:w-[390px]">
