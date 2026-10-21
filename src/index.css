@@ -170,7 +170,7 @@ a {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 14s linear infinite;
+  animation: marquee 24s linear infinite;
 }
 
 .marquee:hover .marquee-track {

@@ -9,9 +9,9 @@ import HeaderStrip from "./HeaderStrip";
 export default function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="fixed inset-x-0 top-0 z-30 bg-[#071a3d]">
-      <HeaderStrip className="h-8 px-5 text-[10px] font-semibold text-white/70" whatsAppIcon={<WhatsAppIcon />} />
-      <div className="mx-auto flex h-[78px] max-w-[1240px] items-center justify-between border-x border-t border-[#dfe4ec] bg-white px-4 text-[#071a3d] shadow-xl sm:rounded-t-2xl sm:px-6">
+    <header className="fixed inset-x-0 top-0 z-30">
+      <HeaderStrip className="h-8 bg-[#071a3d] px-5 text-[10px] font-semibold text-white/70" whatsAppIcon={<WhatsAppIcon />} />
+      <div className="mx-auto flex h-[74px] max-w-[1240px] items-center justify-between rounded-2xl border border-[#dfe4ec] bg-white px-4 text-[#071a3d] shadow-2xl sm:px-6">
         <Link to="/" className="flex items-center gap-3" aria-label="RIT TRANZ home">
           <span className="grid h-14 w-14 place-items-center overflow-hidden rounded-full border-2 border-white shadow-lg"><VanIcon /></span>
           <span className="leading-none"><strong className="block text-[18px] tracking-[0.14em]">RIT TRANZ</strong><small className="mt-1 block text-[9px] font-semibold tracking-[0.2em] text-[#697386]">MAN & VAN BRISTOL</small></span>
@@ -29,7 +29,7 @@ export default function Header() {
         </div>
         <button onClick={() => setOpen(!open)} className="grid h-11 w-11 place-items-center rounded-full border border-[#dfe4ec] text-xl lg:hidden" aria-label="Toggle menu">{open ? "×" : "≡"}</button>
       </div>
-      {open && <nav className="absolute inset-x-4 top-[102px] rounded-2xl bg-white p-5 text-[#071a3d] shadow-xl lg:hidden">{navItems.map(([label, path]) => <Link onClick={() => setOpen(false)} key={path} to={path} className="block border-b border-[#dfe4ec] py-3 text-sm font-semibold">{label}</Link>)}<div className="mt-4 flex gap-2"><a href={facebookUrl} target="_blank" rel="noreferrer" aria-label="RIT TRANZ on Facebook" className="grid h-10 w-10 place-items-center rounded-full bg-[#f2f5fa]"><SocialIcon network="facebook" /></a><a href={instagramUrl} target="_blank" rel="noreferrer" aria-label="RIT TRANZ on Instagram" className="grid h-10 w-10 place-items-center rounded-full bg-[#f2f5fa]"><SocialIcon network="instagram" /></a></div></nav>}
+      {open && <nav className="absolute inset-x-4 top-[114px] rounded-2xl bg-white p-5 text-[#071a3d] shadow-xl lg:hidden">{navItems.map(([label, path]) => <Link onClick={() => setOpen(false)} key={path} to={path} className="block border-b border-[#dfe4ec] py-3 text-sm font-semibold">{label}</Link>)}<div className="mt-4 flex gap-2"><a href={facebookUrl} target="_blank" rel="noreferrer" aria-label="RIT TRANZ on Facebook" className="grid h-10 w-10 place-items-center rounded-full bg-[#f2f5fa]"><SocialIcon network="facebook" /></a><a href={instagramUrl} target="_blank" rel="noreferrer" aria-label="RIT TRANZ on Instagram" className="grid h-10 w-10 place-items-center rounded-full bg-[#f2f5fa]"><SocialIcon network="instagram" /></a></div></nav>}
     </header>
   );
 }

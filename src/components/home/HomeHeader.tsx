@@ -9,7 +9,7 @@ export default function HomeHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-30 text-white">
       <HeaderStrip className="h-8 bg-[#071a3d] px-5 text-[10px] font-semibold text-white/70" whatsAppIcon={<Icon name="whatsapp" size={13} />} />
-      <div className="mx-auto mt-3 flex h-[74px] max-w-[1240px] items-center justify-between rounded-2xl border border-[#dfe4ec] bg-white px-4 text-[#071a3d] shadow-2xl sm:px-6">
+      <div className="mx-auto flex h-[74px] max-w-[1240px] items-center justify-between rounded-2xl border border-[#dfe4ec] bg-white px-4 text-[#071a3d] shadow-2xl sm:px-6">
         <a href="#" className="flex items-center gap-3" aria-label="RIT TRANZ home">
           <img className="h-14 w-14 rounded-full border-2 border-white object-cover shadow-lg" src="/assets/rit-tranz-logo.png" alt="RIT TRANZ Bristol logo" />
           <span className="leading-none">
