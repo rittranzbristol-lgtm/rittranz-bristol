@@ -15,7 +15,7 @@ export default function PricingPlans() {
             <article key={plan.name} className="flex h-full flex-col rounded-[28px] border border-[#dfe4ec] bg-white p-7 transition hover:-translate-y-1 hover:border-[#d10014]/30 hover:shadow-xl sm:p-8">
               <h3 className="text-2xl font-semibold tracking-[-0.02em]">{plan.name}</h3>
               <div className="mt-6"><span className="text-5xl font-semibold tracking-[-0.05em]">{plan.price}</span><span className="ml-2 text-sm font-semibold text-[#697386]">{plan.unit}</span>{plan.priceExtra && <span className="ml-2 text-xs font-semibold text-[#d10014]">({plan.priceExtra})</span>}</div>
-              <p className="mt-2 whitespace-nowrap text-xs font-semibold text-[#d10014]">{plan.note}</p>
+              <p className="mt-2 text-xs font-semibold text-[#d10014] sm:whitespace-nowrap">{plan.note}</p>
               <p className="mt-5 min-h-20 text-sm leading-7 text-[#5f687b]">{plan.description}</p>
               <div className="my-6 h-px bg-[#dfe4ec]" />
               <p className="text-xs font-bold tracking-[0.12em] text-[#071a3d]">WHAT YOUR RATE COVERS</p>

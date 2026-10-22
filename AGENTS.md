@@ -24,6 +24,8 @@ Every push to `master` on GitHub deploys to Vercel automatically.
 - `src/components/icons/` - SVG icon components
 - `src/data/` - page content (services, FAQs, pricing plans, links, SEO schema)
 - `src/utils/whatsapp.ts` - builds and opens the WhatsApp quote messages
+- `src/components/chat/ChatWidget.tsx` - floating "Ask us" chat assistant shown on every page
+- `api/chat.ts` - Vercel function behind the chat; calls Google Gemini (`GEMINI_API_KEY`, optional `GEMINI_MODEL`). `api/_knowledge.ts` builds its system prompt from `src/data/`. In `pnpm dev` it is served by a small plugin in `vite.config.ts`; keys go in `.env.local` (see `.env.example`).
 - `src/index.css` - global CSS and Tailwind CSS v4 import
 - `public/` - static files served as-is (logo, map image, favicons). Stored as normal git files, not Git LFS, so Vercel receives them.
 - `vercel.json` - sends every route to `index.html` so refreshing inner pages works

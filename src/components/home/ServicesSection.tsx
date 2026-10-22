@@ -21,7 +21,7 @@ export default function ServicesSection() {
                 <div className="my-6 h-px bg-[#e1e6ee]" />
                 <div className="flex items-end justify-between gap-5">
                   <div><span className="text-sm font-bold text-[#465269]">FROM</span><div><strong className="text-3xl tracking-[-0.04em]">{item.price}</strong>{item.unit === "/ hour" && <span className="text-sm font-semibold text-[#465269]"> / hour</span>}{item.priceExtra && <span className="ml-2 text-xs font-semibold text-[#d10014]">({item.priceExtra})</span>}</div></div>
-                  <span className="whitespace-nowrap text-right text-xs font-bold leading-5 text-[#344057] sm:text-sm">{item.note}</span>
+                  <span className="text-right text-xs font-bold leading-5 text-[#344057] sm:whitespace-nowrap sm:text-sm">{item.note}</span>
                 </div>
                 <span className="mt-6 inline-flex items-center justify-between rounded-xl bg-[#071a3d] px-5 py-3.5 text-sm font-bold text-white transition group-hover:bg-[#e00016]">{item.cta}<Icon name="arrow" size={17} /></span>
               </article>
