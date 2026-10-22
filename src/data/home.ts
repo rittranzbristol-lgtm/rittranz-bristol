@@ -1,5 +1,5 @@
 import type { IconName } from "../components/icons/Icon";
-import { facebookUrl, instagramUrl } from "./site";
+import { facebookUrl, instagramUrl } from "./site.js";
 
 export const services = [
   {

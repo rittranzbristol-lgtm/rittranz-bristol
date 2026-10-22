@@ -2,10 +2,13 @@
 // Answers visitor questions about RIT TRANZ using Google Gemini. The API key stays
 // here on the server (GEMINI_API_KEY env var) and is never sent to the browser.
 import { ApiError, FinishReason, GoogleGenAI, ThinkingLevel, type Content } from "@google/genai";
-import { buildSystemPrompt } from "./_knowledge";
+import { buildSystemPrompt } from "./_knowledge.js";
 
 // Override with the GEMINI_MODEL env var to switch models without a code change.
 const MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
+// Tried next when the main model is overloaded or rate limited (Google's "latest Flash" alias).
+const BACKUP_MODEL = "gemini-flash-latest";
+const RETRYABLE_STATUS = new Set([429, 500, 503, 504]);
 const SYSTEM_PROMPT = buildSystemPrompt();
 
 // Abuse limits: this endpoint is public and every call uses your API quota.
@@ -83,15 +86,25 @@ export async function POST(request: Request): Promise<Response> {
 
   try {
     ai ??= new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-    const response = await ai.models.generateContent({
-      model: MODEL,
-      contents,
-      config: {
-        systemInstruction: SYSTEM_PROMPT,
-        maxOutputTokens: 4096,
-        thinkingConfig: { thinkingLevel: ThinkingLevel.LOW }, // short customer-service answers; keeps replies fast
-      },
-    });
+    const generate = (model: string) =>
+      ai!.models.generateContent({
+        model,
+        contents,
+        config: {
+          systemInstruction: SYSTEM_PROMPT,
+          maxOutputTokens: 4096,
+          thinkingConfig: { thinkingLevel: ThinkingLevel.LOW }, // short customer-service answers; keeps replies fast
+        },
+      });
+    let response;
+    try {
+      response = await generate(MODEL);
+    } catch (error) {
+      // Google sometimes returns 503 "high demand" for a busy model: try the backup once.
+      if (!(error instanceof ApiError) || !RETRYABLE_STATUS.has(error.status) || MODEL === BACKUP_MODEL) throw error;
+      console.warn(`Gemini ${MODEL} returned ${error.status}; retrying with ${BACKUP_MODEL}`);
+      response = await generate(BACKUP_MODEL);
+    }
 
     const finishReason = response.candidates?.[0]?.finishReason;
     if (response.promptFeedback?.blockReason || BLOCKED_REASONS.has(finishReason)) {

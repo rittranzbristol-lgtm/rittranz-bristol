@@ -1,10 +1,11 @@
 // Builds the chatbot's system prompt from the same data the website renders,
+// Note: relative imports here use ".js" - Vercel runs these as Node ES modules, which require file extensions.
 // so prices, services and FAQs stay in sync with the pages.
 // (Files starting with "_" in api/ are not exposed as endpoints.)
-import { coverage, homeFaqs, services } from "../src/data/home";
-import { plans } from "../src/data/pricing";
-import { promo } from "../src/data/promo";
-import { detailedServices, serviceAreas, serviceFaqs } from "../src/data/services";
+import { coverage, homeFaqs, services } from "../src/data/home.js";
+import { plans } from "../src/data/pricing.js";
+import { promo } from "../src/data/promo.js";
+import { detailedServices, serviceAreas, serviceFaqs } from "../src/data/services.js";
 
 const list = (items: string[]) => items.map((item) => `- ${item}`).join("\n");
 
