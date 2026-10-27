@@ -77,10 +77,13 @@ export const homeFaqs = [
     answer: "Yes, Rit Tranz offers same-day services across Bristol, subject to availability. Send a WhatsApp message as early as you can to secure a slot.",
   },
 ];
+// FAQs shown on the page but left out of the search-engine FAQ schema.
+const faqsExcludedFromSchema = ["Is there a minimum booking?"];
+
 export const homeFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: homeFaqs.map(({ question, answer }) => ({
+  mainEntity: homeFaqs.filter(({ question }) => !faqsExcludedFromSchema.includes(question)).map(({ question, answer }) => ({
     "@type": "Question",
     name: question,
     acceptedAnswer: {
