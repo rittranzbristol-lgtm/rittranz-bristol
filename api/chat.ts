@@ -6,8 +6,11 @@ import { buildSystemPrompt } from "./_knowledge.js";
 
 // Override with the GEMINI_MODEL env var to switch models without a code change.
 const MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
-// Tried next when the main model is overloaded or rate limited (Google's "latest Flash" alias).
-const BACKUP_MODEL = "gemini-flash-latest";
+// Tried next when the main model is overloaded, rate limited or too slow. Flash-Lite runs on
+// separate capacity, so it usually still answers when the Flash models are busy.
+const BACKUP_MODEL = process.env.GEMINI_BACKUP_MODEL || "gemini-flash-lite-latest";
+// Give up on a model after this long, so visitors are never left waiting a minute.
+const REQUEST_TIMEOUT_MS = 15000;
 const RETRYABLE_STATUS = new Set([429, 500, 503, 504]);
 const SYSTEM_PROMPT = buildSystemPrompt();
 
@@ -85,7 +88,7 @@ export async function POST(request: Request): Promise<Response> {
   }
 
   try {
-    ai ??= new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+    ai ??= new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY, httpOptions: { timeout: REQUEST_TIMEOUT_MS } });
     const generate = (model: string) =>
       ai!.models.generateContent({
         model,
@@ -100,9 +103,11 @@ export async function POST(request: Request): Promise<Response> {
     try {
       response = await generate(MODEL);
     } catch (error) {
-      // Google sometimes returns 503 "high demand" for a busy model: try the backup once.
-      if (!(error instanceof ApiError) || !RETRYABLE_STATUS.has(error.status) || MODEL === BACKUP_MODEL) throw error;
-      console.warn(`Gemini ${MODEL} returned ${error.status}; retrying with ${BACKUP_MODEL}`);
+      // Google sometimes returns 503 "high demand" or is too slow for a busy model: try the backup once.
+      // Errors such as a bad API key (400/403) would fail on the backup too, so those aren't retried.
+      const retryable = error instanceof ApiError ? RETRYABLE_STATUS.has(error.status) : true; // non-API errors = timeout/network
+      if (!retryable || MODEL === BACKUP_MODEL) throw error;
+      console.warn(`Gemini ${MODEL} failed (${error instanceof ApiError ? error.status : "timeout/network"}); retrying with ${BACKUP_MODEL}`);
       response = await generate(BACKUP_MODEL);
     }
 
