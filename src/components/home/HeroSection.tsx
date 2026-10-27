@@ -6,11 +6,16 @@ import QuoteForm from "./QuoteForm";
 export default function HeroSection() {
   return (
     <section className="hero relative min-h-[800px] overflow-hidden bg-[#071a3d] text-white">
-      <img
-        className="absolute inset-0 h-full w-full object-cover object-center"
-        src="/assets/bristol-van-high-street.jpg"
-        alt="White RIT TRANZ van parked on a Bristol high street at dusk"
-      />
+      {/* Phones and portrait tablets get a square crop; desktops get the wide shot. */}
+      <picture>
+        <source media="(max-width: 1023px)" srcSet="/assets/home-hero-phone.jpg" />
+        <img
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          src="/assets/home-hero-desktop.jpg"
+          alt="White RIT TRANZ van on a Bristol high street at dusk"
+          fetchPriority="high"
+        />
+      </picture>
       <div className="absolute inset-0 bg-[#020f2d]/75 lg:bg-transparent" />
       <div className="hero-shade absolute inset-0" />
       <div className="relative z-10 mx-auto grid min-h-[800px] max-w-[1240px] items-center gap-12 px-5 pb-8 pt-36 sm:px-8 lg:grid-cols-[1.1fr_.9fr] lg:pt-32">

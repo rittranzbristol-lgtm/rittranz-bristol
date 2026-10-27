@@ -14,7 +14,11 @@ export default function AboutHero() {
           </div>
         </div>
         <div className="relative min-h-[500px] overflow-hidden lg:min-h-[620px]">
-          <img className="absolute inset-0 h-full w-full object-cover object-center" src="/assets/bristol-van-clifton-observatory.jpg" alt="RIT TRANZ van beside Clifton Observatory, Bristol, at sunset" />
+          {/* Phones get a portrait crop; tablets and desktops get the wider one. */}
+          <picture>
+            <source media="(max-width: 639px)" srcSet="/assets/about-hero-phone.jpg" />
+            <img className="absolute inset-0 h-full w-full object-cover object-center" src="/assets/about-hero-desktop.jpg" alt="RIT TRANZ van beside Clifton Observatory, Bristol, at sunset" fetchPriority="high" />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-t from-[#020f2d]/35 via-transparent to-transparent lg:bg-gradient-to-r lg:from-[#071a3d]/25 lg:to-transparent" />
         </div>
       </div>

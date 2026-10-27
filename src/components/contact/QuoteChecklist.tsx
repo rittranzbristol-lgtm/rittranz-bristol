@@ -2,7 +2,11 @@ export default function QuoteChecklist() {
   return (
     <section className="bg-[#020f2d] px-5 py-20 text-white sm:px-8 sm:py-24">
       <div className="mx-auto grid max-w-[1240px] overflow-hidden rounded-[28px] border border-white/10 lg:grid-cols-[.9fr_1.1fr]">
-        <img className="min-h-[460px] h-full w-full object-cover" src="https://images.unsplash.com/photo-1620455800201-7f00aeef12ed?auto=format&fit=crop&w=1200&q=85" alt="Mover carrying boxes beside a delivery van" />
+        {/* Phones get a shorter portrait crop; tablets and desktops get the tall one. */}
+        <picture className="block h-full">
+          <source media="(max-width: 639px)" srcSet="/assets/contact-job-phone.jpg" />
+          <img className="min-h-[460px] h-full w-full object-cover" src="/assets/contact-job-desktop.jpg" alt="RIT TRANZ van parked outside Bath Wine Merchants, Bath" loading="lazy" />
+        </picture>
         <div className="p-8 sm:p-12">
           <p className="text-[10px] font-bold tracking-[0.18em] text-[#ff5968]">FOR AN ACCURATE QUOTE</p>
           <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Show us the whole job.</h2>

@@ -2,7 +2,11 @@ export default function AboutStory() {
   return (
     <section className="px-5 py-20 sm:px-8 sm:py-28">
       <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-2 lg:items-center">
-        <img className="h-[620px] w-full rounded-[28px] object-cover" src="https://images.unsplash.com/photo-1620455800201-7f00aeef12ed?auto=format&fit=crop&w=1200&q=85" alt="A mover loading boxes into a van" />
+        {/* Phones get a tall crop; tablets and desktops get the squarer one. */}
+        <picture className="block">
+          <source media="(max-width: 639px)" srcSet="/assets/about-story-phone.jpg" />
+          <img className="h-[620px] w-full rounded-[28px] object-cover" src="/assets/about-story-desktop.jpg" alt="RIT TRANZ van parked on a sunny Bristol high street" loading="lazy" />
+        </picture>
         <div>
           <p className="text-xs font-bold tracking-[0.18em] text-[#d10014]">THE STORY BEHIND RIT TRANZ</p>
           <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">A better way to move in Bristol.</h2>

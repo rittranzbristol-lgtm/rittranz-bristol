@@ -15,13 +15,18 @@ export default function ServicesHero() {
           </div>
         </div>
         <div className="relative min-h-[540px] overflow-hidden lg:min-h-[650px]">
-          <img
-            className="absolute inset-0 h-full w-full object-cover object-center"
-            src="/assets/bristol-van-wills-memorial.jpg"
-            alt="RIT TRANZ Ford Transit Custom van near the Wills Memorial Building, Bristol"
-          />
+          {/* Phones get a portrait crop; tablets and desktops get the wider one. */}
+          <picture>
+            <source media="(max-width: 639px)" srcSet="/assets/services-hero-phone.jpg" />
+            <img
+              className="absolute inset-0 h-full w-full object-cover object-center"
+              src="/assets/services-hero-desktop.jpg"
+              alt="RIT TRANZ Ford Transit Custom van near the Wills Memorial Building, Bristol"
+              fetchPriority="high"
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-t from-[#020f2d]/45 via-transparent to-transparent lg:bg-gradient-to-r lg:from-[#071a3d]/25 lg:to-transparent" />
-          <div className="absolute bottom-7 left-5 right-5 sm:bottom-9 sm:left-8 sm:right-auto sm:w-[390px]">
+          <div className="absolute left-5 right-5 top-7 sm:left-8 sm:right-auto sm:top-9 sm:w-[390px]">
             <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border border-white/15 bg-[#e00016]" />
             <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-2xl bg-[#102d5f]" />
             <div className="relative rounded-2xl border border-white/15 bg-[#020f2d]/95 p-6 shadow-2xl backdrop-blur-md">
