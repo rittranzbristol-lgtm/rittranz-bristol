@@ -12,8 +12,9 @@ export default function ServicesSection() {
           <p className="mt-5 inline-flex rounded-xl border border-[#d7dee9] bg-white px-4 py-3 text-sm font-bold text-[#071a3d] shadow-sm">Every service includes a van, driver, and one trip up to 10 miles.</p>
         </div>
         <div className="grid gap-5 md:grid-cols-2">
-          {services.map((item) => (
-            <a key={item.title} href="/services" aria-label={`${item.cta}: ${item.title}`} className="group block rounded-[24px] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e00016]/20">
+          {services.map((item, index) => (
+            // An odd last card spans both columns so it doesn't sit alone in its row.
+            <a key={item.title} href="/services" aria-label={`${item.cta}: ${item.title}`} className={`group block rounded-[24px] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e00016]/20 ${index === services.length - 1 && services.length % 2 === 1 ? "md:col-span-2" : ""}`}>
               <article className="service-card flex h-full flex-col rounded-[24px] border border-[#dfe4ec] bg-white p-7 transition duration-200 group-hover:-translate-y-1 group-hover:border-[#d10014]/30 group-hover:shadow-xl">
                 <span className="mb-6 grid h-12 w-12 place-items-center rounded-full bg-[#f2f5fa] text-[#d10014] transition group-hover:bg-[#e00016] group-hover:text-white"><Icon name={item.icon} size={23} /></span>
                 <h3 className="text-2xl font-semibold tracking-[-0.025em]">{item.title}</h3>
@@ -23,6 +24,7 @@ export default function ServicesSection() {
                   <div><span className="text-sm font-bold text-[#465269]">FROM</span><div><strong className="text-3xl tracking-[-0.04em]">{item.price}</strong>{item.unit === "/ hour" && <span className="text-sm font-semibold text-[#465269]"> / hour</span>}{item.priceExtra && <span className="ml-2 text-xs font-semibold text-[#d10014]">({item.priceExtra})</span>}</div></div>
                   <span className="text-right text-xs font-bold leading-5 text-[#344057] sm:whitespace-nowrap sm:text-sm">{item.note}</span>
                 </div>
+                {item.subtext && <p className="mt-3 text-sm font-semibold leading-6 text-[#d10014]">{item.subtext}</p>}
                 <span className="mt-6 inline-flex items-center justify-between rounded-xl bg-[#071a3d] px-5 py-3.5 text-sm font-bold text-white transition group-hover:bg-[#e00016]">{item.cta}<Icon name="arrow" size={17} /></span>
               </article>
             </a>

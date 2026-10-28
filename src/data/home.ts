@@ -39,6 +39,16 @@ export const services = [
     note: "2-hour minimum",
     cta: "View more details",
   },
+  {
+    icon: "tools" as IconName,
+    title: "Furniture Assemble & Dismantling",
+    description: "Trade tool-equipped assembly and move-day dismantling. Fast flat-pack building, bed and wardrobe teardowns, or breaking down bulky units for disposal.",
+    price: "£25",
+    unit: "/ hour",
+    note: "2-hour minimum",
+    subtext: "Flat per-item rates available when booked with a move.",
+    cta: "View assemble/dismantling details",
+  },
 ];
 
 export const coverage = ["Bristol", "Portishead", "Nailsea", "Clevedon", "All BS Postcodes", "Nationwide Moves"];

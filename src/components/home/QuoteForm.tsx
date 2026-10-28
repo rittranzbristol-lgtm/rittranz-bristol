@@ -2,11 +2,25 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { formatDate, openWhatsApp } from "../../utils/whatsapp";
 import Icon, { type IconName } from "../icons/Icon";
 
+const MOVE = "Home or flat move";
+const CLEARANCE = "Waste clearance";
+const ASSEMBLY = "Furniture assemble/dismantle";
+
+const tabs: [value: string, icon: IconName, label: string][] = [
+  [MOVE, "home", "Moving"],
+  ["Item pickup", "box", "Pickup"],
+  [CLEARANCE, "waste", "Clearance"],
+  // Zero-width space lets the long label wrap after the slash on narrow screens.
+  [ASSEMBLY, "tools", "Assemble/​Dismantle"],
+];
+
 export default function QuoteForm() {
-  const [service, setService] = useState("Home or flat move");
+  const [service, setService] = useState(MOVE);
   // Kept in state so values survive switching between service types.
-  const [fields, setFields] = useState({ from: "", to: "", items: "", date: "" });
-  const isClearance = service === "Waste clearance";
+  const [fields, setFields] = useState({ from: "", to: "", items: "", assembly: "", date: "" });
+  const [needsDismantling, setNeedsDismantling] = useState(false);
+  const isClearance = service === CLEARANCE;
+  const isAssembly = service === ASSEMBLY;
 
   function updateField(event: ChangeEvent<HTMLInputElement>) {
     setFields({ ...fields, [event.target.name]: event.target.value });
@@ -17,13 +31,16 @@ export default function QuoteForm() {
     const from = fields.from.trim();
     const to = fields.to.trim();
     const items = fields.items.trim();
-    const lines = [
-      "Hi RIT TRANZ, I'd like a free quote.",
-      `Service: ${service}`,
-      `Pickup postcode: ${from || "Not provided"}`,
-    ];
-    if (!isClearance || to) lines.push(`Drop-off postcode: ${to || "Not provided"}`);
-    if (isClearance || items) lines.push(`Items to be collected: ${items || "Not provided"}`);
+    const lines = ["Hi RIT TRANZ, I'd like a free quote.", `Service: ${service}`];
+    if (isAssembly) {
+      lines.push(`Postcode: ${from || "Not provided"}`);
+      lines.push(`Items to assemble/dismantle: ${fields.assembly.trim() || "Not provided"}`);
+    } else {
+      lines.push(`Pickup postcode: ${from || "Not provided"}`);
+      if (!isClearance || to) lines.push(`Drop-off postcode: ${to || "Not provided"}`);
+      if (isClearance || items) lines.push(`Items to be collected: ${items || "Not provided"}`);
+      if (service === MOVE && needsDismantling) lines.push("Furniture dismantling/assembly: Yes, needed (flat fee per item)");
+    }
     lines.push(`Preferred date: ${formatDate(fields.date) || "Flexible"}`);
     openWhatsApp(lines);
   }
@@ -38,28 +55,30 @@ export default function QuoteForm() {
         <span className="grid h-11 w-11 place-items-center rounded-full bg-[#f2f5fa] text-[#d10014]"><Icon name="sparkle" /></span>
       </div>
       <label className="mb-2 block text-xs font-bold">What do you need?</label>
-      <div className="grid grid-cols-3 gap-2">
-        {[
-          ["Home or flat move", "home", "Moving"],
-          ["Item pickup", "box", "Pickup"],
-          ["Waste clearance", "waste", "Clearance"],
-        ].map(([value, icon, label]) => (
+      <div className="grid grid-cols-4 gap-2">
+        {tabs.map(([value, icon, label]) => (
           <button
             type="button"
             key={value}
             onClick={() => setService(value)}
-            className={`quote-option rounded-xl border px-2 py-3 text-center text-[11px] font-bold transition ${service === value ? "active" : "border-[#dfe4ec] text-[#697386]"}`}
+            aria-pressed={service === value}
+            className={`quote-option rounded-xl border px-1.5 py-3 text-center text-[11px] font-bold leading-4 transition ${service === value ? "active" : "border-[#dfe4ec] text-[#697386]"}`}
           >
-            <span className="mx-auto mb-1.5 grid place-items-center"><Icon name={icon as IconName} size={19} /></span>{label}
+            <span className="mx-auto mb-1.5 grid place-items-center"><Icon name={icon} size={19} /></span>{label}
           </button>
         ))}
       </div>
       <div className="mt-4 grid gap-3">
         <label>
-          <span className="mb-2 block text-xs font-bold">Pickup postcode</span>
+          <span className="mb-2 block text-xs font-bold">{isAssembly ? "Postcode" : "Pickup postcode"}</span>
           <span className="input-shell"><Icon name="map" size={18} /><input name="from" required placeholder="e.g. BS1 5TY" value={fields.from} onChange={updateField} /></span>
         </label>
-        {isClearance ? (
+        {isAssembly ? (
+          <label>
+            <span className="mb-2 block text-xs font-bold">Items to assemble/dismantle</span>
+            <span className="input-shell"><Icon name="tools" size={18} /><input name="assembly" required placeholder="e.g. IKEA wardrobe, double bed" value={fields.assembly} onChange={updateField} /></span>
+          </label>
+        ) : isClearance ? (
           <label>
             <span className="mb-2 block text-xs font-bold">Items to be collected</span>
             <span className="input-shell"><Icon name="waste" size={18} /><input name="items" required placeholder="e.g. sofa, bags and garden waste" value={fields.items} onChange={updateField} /></span>
@@ -68,6 +87,12 @@ export default function QuoteForm() {
           <label>
             <span className="mb-2 block text-xs font-bold">Drop-off postcode</span>
             <span className="input-shell"><Icon name="map" size={18} /><input name="to" required placeholder="e.g. BS8 2PS" value={fields.to} onChange={updateField} /></span>
+          </label>
+        )}
+        {service === MOVE && (
+          <label className="flex cursor-pointer items-start gap-2.5 rounded-xl border border-[#dfe4ec] bg-[#f6f8fc] px-3 py-2.5 text-xs font-semibold leading-5 text-[#263653]">
+            <input type="checkbox" checked={needsDismantling} onChange={(e) => setNeedsDismantling(e.target.checked)} className="mt-0.5 h-4 w-4 shrink-0 accent-[#e00016]" />
+            <span>Need furniture dismantled or assembled? <span className="text-[#697386]">(Flat fee per item)</span></span>
           </label>
         )}
         <label>

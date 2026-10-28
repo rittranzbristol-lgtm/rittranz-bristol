@@ -45,7 +45,7 @@ export default function ContactFormSection() {
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="contact-field"><span>Your name *</span><input name="name" required placeholder="Full name" /></label>
             <label className="contact-field"><span>Phone number *</span><input name="phone" required type="tel" placeholder="07..." /></label>
-            <label className="contact-field"><span>Service needed *</span><select name="service"><option>Home or flat move</option><option>Item pickup</option><option>Waste clearance</option><option>Self-storage move</option></select></label>
+            <label className="contact-field"><span>Service needed *</span><select name="service"><option>Home or flat move</option><option>Item pickup</option><option>Waste clearance</option><option>Self-storage move</option><option>Furniture assemble/dismantle</option></select></label>
             <label className="contact-field"><span>Preferred date</span><input name="date" type="date" /></label>
             <label className="contact-field"><span>Pickup postcode *</span><input name="pickup" required placeholder="e.g. BS1 5TY" /></label>
             <label className="contact-field"><span>Drop-off postcode</span><input name="dropoff" placeholder="e.g. BS8 2PS" /></label>

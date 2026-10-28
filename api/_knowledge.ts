@@ -11,10 +11,16 @@ const list = (items: string[]) => items.map((item) => `- ${item}`).join("\n");
 
 export function buildSystemPrompt() {
   const pricing = plans
-    .map((p) => `${p.name}: ${p.unit === "from" ? `from ${p.price}` : `${p.price} ${p.unit}`}${p.priceExtra ? ` (${p.priceExtra})` : ""}. ${p.note}. ${p.description}\nIncludes:\n${list(p.items)}`)
+    .map(
+      (p) =>
+        `${p.name}: ${p.unit === "from" ? `from ${p.price}` : `${p.price} ${p.unit}`}${p.priceExtra ? ` (${p.priceExtra})` : ""}. ${p.note}. ${p.description}` +
+        (p.options ? `\nPrice options:\n${list(p.options.map((o) => `${o.label}: ${o.text}`))}` : "") +
+        `\nIncludes:\n${list(p.items)}` +
+        (p.terms ? `\nTerms: ${p.terms}` : ""),
+    )
     .join("\n\n");
   const serviceSummaries = services
-    .map((s) => `${s.title}: from ${s.price}${s.unit === "/ hour" ? " per hour" : ""}${s.priceExtra ? ` (${s.priceExtra})` : ""}, ${s.note}. ${s.description}`)
+    .map((s) => `${s.title}: from ${s.price}${s.unit === "/ hour" ? " per hour" : ""}${s.priceExtra ? ` (${s.priceExtra})` : ""}, ${s.note}. ${s.description}${s.subtext ? ` ${s.subtext}` : ""}`)
     .join("\n");
   const serviceDetails = detailedServices
     .map((s) => `${s.title}: ${s.text}\nFeatures:\n${list(s.features)}\nBest for: ${s.bestFor}`)

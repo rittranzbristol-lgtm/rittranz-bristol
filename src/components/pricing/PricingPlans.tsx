@@ -11,12 +11,24 @@ export default function PricingPlans() {
           <p className="mt-5 text-base font-medium text-[#465269]">Direct driver-to-customer communication, no middlemen.</p>
         </div>
         <div className="mt-12 grid gap-5 lg:grid-cols-2">
-          {plans.map((plan) => (
-            <article key={plan.name} className="flex h-full flex-col rounded-[28px] border border-[#dfe4ec] bg-white p-7 transition hover:-translate-y-1 hover:border-[#d10014]/30 hover:shadow-xl sm:p-8">
+          {plans.map((plan, index) => (
+            // An odd last card spans both columns so it doesn't sit alone in its row.
+            <article key={plan.name} className={`${index === plans.length - 1 && plans.length % 2 === 1 ? "lg:col-span-2 " : ""}flex h-full flex-col rounded-[28px] border border-[#dfe4ec] bg-white p-7 transition hover:-translate-y-1 hover:border-[#d10014]/30 hover:shadow-xl sm:p-8`}>
               <h3 className="text-2xl font-semibold tracking-[-0.02em]">{plan.name}</h3>
               <div className="mt-6"><span className="text-5xl font-semibold tracking-[-0.05em]">{plan.price}</span><span className="ml-2 text-sm font-semibold text-[#697386]">{plan.unit}</span>{plan.priceExtra && <span className="ml-2 text-xs font-semibold text-[#d10014]">({plan.priceExtra})</span>}</div>
               <p className="mt-2 text-xs font-semibold text-[#d10014] sm:whitespace-nowrap">{plan.note}</p>
-              <p className="mt-5 min-h-20 text-sm leading-7 text-[#5f687b]">{plan.description}</p>
+              {plan.options ? (
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {plan.options.map((option) => (
+                    <div key={option.label} className="rounded-2xl bg-[#f2f5fa] p-4 text-sm leading-6 text-[#465269]">
+                      <strong className="block text-[#071a3d]">{option.label}</strong>
+                      {option.text}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="mt-5 min-h-20 text-sm leading-7 text-[#5f687b]">{plan.description}</p>
+              )}
               <div className="my-6 h-px bg-[#dfe4ec]" />
               <p className="text-xs font-bold tracking-[0.12em] text-[#071a3d]">WHAT YOUR RATE COVERS</p>
               <ul className="mt-5 space-y-4">
@@ -27,6 +39,12 @@ export default function PricingPlans() {
                   </li>
                 ))}
               </ul>
+              {plan.terms && (
+                <p className="mt-6 rounded-2xl border border-[#d10014]/20 bg-[#fff0f1] p-4 text-xs leading-5 text-[#465269]">
+                  <strong className="block text-[#071a3d]">Important terms / hardware policy</strong>
+                  {plan.terms}
+                </p>
+              )}
               <div className="mt-auto pt-8">
                 <Link to="/contact" className="flex items-center justify-center rounded-full bg-[#020f2d] px-5 py-4 text-sm font-bold text-white transition hover:bg-[#e00016]">Request this service</Link>
               </div>

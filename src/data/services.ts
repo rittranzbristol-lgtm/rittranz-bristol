@@ -31,6 +31,19 @@ export const detailedServices = [
     bestFor: "End-of-tenancy moves from a flat or house to storage, collecting items from a storage unit.",
     cta: "Get storage move pricing",
   },
+  {
+    no: "05",
+    title: "Furniture Assemble & Dismantling",
+    text: "Dismantling bed frames or squeezing bulky wardrobes down tight Bristol staircases shouldn’t add stress to moving day. RIT TRANZ offers tool-equipped furniture dismantling and flat-pack assembly, with your driver arriving fully equipped with professional Bosch trade power tools.",
+    features: [
+      "Full trade toolkit included (cordless Bosch impact drivers & precision drills)",
+      "Existing screws/fixings securely bagged and labelled",
+      "Flat per-item pricing with moves (moving hourly rate pauses)",
+      "Flat-pack packaging removal available",
+    ],
+    bestFor: "Flat-pack builds (IKEA, Argos, Wayfair), move-day bed/wardrobe breakdown, dismantling bulky furniture.",
+    cta: "Check Assemble/Dismantling pricing",
+  },
 ];
 
 export const serviceAreas = [

@@ -52,4 +52,23 @@ export const plans = [
       "Full commercial insurance while goods are in transit to the unit",
     ],
   },
+  {
+    name: "Furniture Assemble & Dismantling",
+    price: "£25",
+    unit: "/ hour",
+    note: "2-hour minimum booking (standalone)",
+    description: "Flat-pack assembly and move-day dismantling, with a full trade power-tool kit.",
+    // Shown as a two-part price breakdown instead of a single description.
+    options: [
+      { label: "Standalone (no move)", text: "£25 / hour (2-hour minimum booking)." },
+      { label: "Move add-on", text: "Booked alongside a move? The moving hourly rate pauses. RIT TRANZ charges a transparent flat fee per item (from £20 for standard items), so there is no overpaying during dismantling." },
+    ],
+    items: [
+      "Solo operator equipped with full Bosch trade power tool kit",
+      "Precision assembly of new flat-pack furniture",
+      "Move-day furniture dismantling and reassembly",
+      "Existing hardware safely bagged and taped to furniture",
+    ],
+    terms: "The standard rate includes bagging and labelling existing furniture fixings. Any replacement parts, spare screws, brackets, or speciality cam-locks supplied from the van’s onboard trade stock to complete a build are charged separately as a consumables fee.",
+  },
 ];
