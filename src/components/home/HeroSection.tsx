@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { googleBusinessUrl } from "../../data/site";
 import Icon from "../icons/Icon";
 import PromisesBar from "./PromisesBar";
@@ -34,9 +35,9 @@ export default function HeroSection() {
             <a href="#quote" className="inline-flex items-center gap-3 rounded-full bg-[#e00016] px-7 py-4 text-sm font-bold text-white shadow-xl shadow-black/15 transition hover:bg-white hover:text-[#071a3d]">
               Get a free quote <Icon name="arrow" size={18} />
             </a>
-            <a href="/services" className="inline-flex items-center gap-3 rounded-full border border-white/35 bg-white/5 px-7 py-4 text-sm font-bold backdrop-blur-sm transition hover:bg-white hover:text-[#071a3d]">
+            <Link to="/services#services" className="inline-flex items-center gap-3 rounded-full border border-white/35 bg-white/5 px-7 py-4 text-sm font-bold backdrop-blur-sm transition hover:bg-white hover:text-[#071a3d]">
               Explore services
-            </a>
+            </Link>
           </div>
           <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-bold text-white">
             <span className="flex items-center gap-2"><span className="grid h-7 w-7 place-items-center rounded-full bg-white/15 text-[#ff5968]"><Icon name="shield" size={17} /></span>Fully insured</span>

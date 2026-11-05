@@ -3,6 +3,7 @@ import { facebookUrl, instagramUrl } from "./site.js";
 
 export const services = [
   {
+    id: "home-moves",
     icon: "home" as IconName,
     title: "Home & flat moves",
     description: "Careful, efficient moves for flats, small houses, and student accommodation across Bristol.",
@@ -12,6 +13,7 @@ export const services = [
     cta: "View moving details",
   },
   {
+    id: "store-pickups",
     icon: "store" as IconName,
     title: "Store & item pickups",
     description: "Fast local collections from Facebook Marketplace, IKEA, B&Q, and private sellers delivered straight to your door.",
@@ -21,6 +23,7 @@ export const services = [
     cta: "View pickup details",
   },
   {
+    id: "waste-clearance",
     icon: "waste" as IconName,
     title: "Licensed waste clearance",
     description: "Responsible, Environment Agency-licensed clearance for cardboard, unwanted furniture, household waste, and green waste.",
@@ -31,6 +34,7 @@ export const services = [
     cta: "View clearance details",
   },
   {
+    id: "self-storage",
     icon: "box" as IconName,
     title: "Self-storage moves",
     description: "Stress-free transport to and from self-storage units. Handled by a solo driver, with your help required for loading heavy items.",
@@ -40,6 +44,7 @@ export const services = [
     cta: "View more details",
   },
   {
+    id: "furniture-assembly",
     icon: "tools" as IconName,
     title: "Furniture Assemble & Dismantling",
     description: "Trade tool-equipped assembly and move-day dismantling. Fast flat-pack building, bed and wardrobe teardowns, or breaking down bulky units for disposal.",

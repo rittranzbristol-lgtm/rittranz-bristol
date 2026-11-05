@@ -1,5 +1,6 @@
 export const detailedServices = [
   {
+    id: "home-moves",
     no: "01",
     title: "Home & flat moves",
     text: "Careful flat and house moves across Bristol. Once your boxes are packed, your driver works alongside you to load and unload safely. Your belongings are protected in transit by heavy-duty moving blankets and load-rated straps.",
@@ -8,6 +9,7 @@ export const detailedServices = [
     cta: "Know more about pricing",
   },
   {
+    id: "store-pickups",
     no: "02",
     title: "Marketplace & Store Pickups",
     text: "Got a purchase that won’t fit in the car? We collect from Facebook Marketplace, Gumtree, IKEA, B&Q, private sellers, and local stores, then deliver straight to your door.",
@@ -16,6 +18,7 @@ export const detailedServices = [
     cta: "Check pickup pricing",
   },
   {
+    id: "waste-clearance",
     no: "03",
     title: "Licensed Waste Clearance in Bristol",
     text: "A responsible way to clear cardboard, mixed wood, unwanted furniture, household items, electronic items, and garden waste. As an Environment Agency-registered Upper Tier Waste Carrier, we ensure legal disposal with waste transfer notes provided.",
@@ -24,6 +27,7 @@ export const detailedServices = [
     cta: "See Clearance Pricing",
   },
   {
+    id: "self-storage",
     no: "04",
     title: "Self Storage Moves in Bristol",
     text: "Need to move items in or out of Big Yellow, Safestore, Vanguard, or a local lock-up? We provide stress-free transport to any Bristol storage facility. Fully insured, with one friendly local driver handling the trip alongside your loading assistance.",
@@ -32,6 +36,7 @@ export const detailedServices = [
     cta: "Get storage move pricing",
   },
   {
+    id: "furniture-assembly",
     no: "05",
     title: "Furniture Assemble & Dismantling",
     text: "Dismantling bed frames or squeezing bulky wardrobes down tight Bristol staircases shouldn’t add stress to moving day. RIT TRANZ offers tool-equipped furniture dismantling and flat-pack assembly, with your driver arriving fully equipped with professional Bosch trade power tools.",

@@ -1,8 +1,10 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { plans } from "../../data/pricing";
 import { quoteFormPath } from "../../data/site";
 
 export default function PricingPlans() {
+  const { hash } = useLocation();
+
   return (
     <section className="px-5 py-20 sm:px-8 sm:py-28">
       <div className="mx-auto max-w-[1240px]">
@@ -14,7 +16,8 @@ export default function PricingPlans() {
         <div className="mt-12 grid gap-5 lg:grid-cols-2">
           {plans.map((plan, index) => (
             // An odd last card spans both columns so it doesn't sit alone in its row.
-            <article key={plan.name} className={`${index === plans.length - 1 && plans.length % 2 === 1 ? "lg:col-span-2 " : ""}flex h-full flex-col rounded-[28px] border border-[#dfe4ec] bg-white p-7 transition hover:-translate-y-1 hover:border-[#d10014]/30 hover:shadow-xl sm:p-8`}>
+            // The card a service link pointed to is outlined, as it may sit beside another card.
+            <article key={plan.name} id={plan.id} className={`${index === plans.length - 1 && plans.length % 2 === 1 ? "lg:col-span-2 " : ""}${hash === `#${plan.id}` ? "ring-2 ring-[#e00016] " : ""}flex h-full flex-col rounded-[28px] border border-[#dfe4ec] bg-white p-7 transition hover:-translate-y-1 hover:border-[#d10014]/30 hover:shadow-xl sm:p-8`}>
               <h3 className="text-2xl font-semibold tracking-[-0.02em]">{plan.name}</h3>
               <div className="mt-6"><span className="text-5xl font-semibold tracking-[-0.05em]">{plan.price}</span><span className="ml-2 text-sm font-semibold text-[#697386]">{plan.unit}</span>{plan.priceExtra && <span className="ml-2 text-xs font-semibold text-[#d10014]">({plan.priceExtra})</span>}</div>
               <p className="mt-2 text-xs font-semibold text-[#d10014] sm:whitespace-nowrap">{plan.note}</p>

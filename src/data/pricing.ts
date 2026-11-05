@@ -1,5 +1,6 @@
 export const plans = [
   {
+    id: "home-moves",
     name: "Local Moves",
     price: "£40",
     unit: "/ hour",
@@ -13,6 +14,7 @@ export const plans = [
     ],
   },
   {
+    id: "store-pickups",
     name: "Store & Item Pickups",
     price: "£35",
     unit: "from",
@@ -26,6 +28,7 @@ export const plans = [
     ],
   },
   {
+    id: "waste-clearance",
     name: "Licensed Waste Clearance",
     price: "£80",
     priceExtra: "Micro loads start from £60",
@@ -40,6 +43,7 @@ export const plans = [
     ],
   },
   {
+    id: "self-storage",
     name: "Self-Storage Moves",
     price: "£40",
     unit: "/ hour",
@@ -53,6 +57,7 @@ export const plans = [
     ],
   },
   {
+    id: "furniture-assembly",
     name: "Furniture Assemble & Dismantling",
     price: "£25",
     unit: "/ hour",
