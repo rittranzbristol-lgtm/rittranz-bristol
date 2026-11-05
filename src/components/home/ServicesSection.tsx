@@ -35,7 +35,7 @@ export default function ServicesSection() {
             <p className="text-base font-bold">No hidden fees. Final price confirmed before booking.</p>
             <a href="/terms" className="mt-2 inline-flex text-sm font-semibold text-[#ff5968] underline decoration-[#ff5968]/40 underline-offset-4 transition hover:text-white">Customer loading assistance may be required</a>
           </div>
-          <a href="https://wa.me/447584201972" target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center gap-3 rounded-full bg-[#e00016] px-6 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#071a3d]">Get a free quote on WhatsApp <Icon name="arrow" size={18} /></a>
+          <a href="#quote" className="inline-flex shrink-0 items-center gap-3 rounded-full bg-[#e00016] px-6 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#071a3d]">Get a free quote on WhatsApp <Icon name="arrow" size={18} /></a>
         </div>
       </div>
     </section>

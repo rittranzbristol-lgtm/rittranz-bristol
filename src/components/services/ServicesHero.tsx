@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+import { quoteFormPath } from "../../data/site";
 import ArrowIcon from "../icons/ArrowIcon";
 
 export default function ServicesHero() {
@@ -10,7 +12,7 @@ export default function ServicesHero() {
             <p className="text-xs font-bold tracking-[0.18em] text-[#ff5968]">OUR SERVICES</p>
             <h1 className="mt-5 text-5xl font-semibold leading-[1.02] tracking-[-0.055em] sm:text-7xl">A van for every kind of job.</h1>
             <p className="mt-6 text-base leading-8 text-white/75 sm:text-lg">Professional van transport service covering flat and home moving, marketplace pickups, self-storage transport, and licensed waste clearance throughout Bristol. No call centres—deal straight with your dedicated driver.</p>
-            <a href="https://wa.me/447584201972" target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#e00016] px-7 py-4 text-sm font-bold text-white shadow-xl shadow-black/20 transition hover:bg-white hover:text-[#071a3d]">Message us for a fast quote <ArrowIcon /></a>
+            <Link to={quoteFormPath} className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#e00016] px-7 py-4 text-sm font-bold text-white shadow-xl shadow-black/20 transition hover:bg-white hover:text-[#071a3d]">Message us for a fast quote <ArrowIcon /></Link>
             <p className="mt-5 text-sm font-semibold leading-6 text-white/80">Fully insured · Licensed waste carrier · Direct driver, no middlemen.</p>
           </div>
         </div>

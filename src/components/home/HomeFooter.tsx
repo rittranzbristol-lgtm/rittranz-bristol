@@ -1,4 +1,5 @@
-import { facebookUrl, instagramUrl } from "../../data/site";
+import { facebookUrl, instagramUrl, whatsAppMessages } from "../../data/site";
+import { whatsAppLink } from "../../utils/whatsapp";
 import Icon from "../icons/Icon";
 
 export default function HomeFooter() {
@@ -22,7 +23,7 @@ export default function HomeFooter() {
           <div className="flex items-center gap-2">
             <a href={facebookUrl} target="_blank" rel="noreferrer" aria-label="RIT TRANZ on Facebook" className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/75 transition hover:border-[#e00016] hover:text-[#e00016]"><Icon name="facebook" size={19} /></a>
             <a href={instagramUrl} target="_blank" rel="noreferrer" aria-label="RIT TRANZ on Instagram" className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/75 transition hover:border-[#e00016] hover:text-[#e00016]"><Icon name="instagram" size={19} /></a>
-            <a href="https://wa.me/447584201972" target="_blank" rel="noreferrer" aria-label="Message RIT TRANZ on WhatsApp" className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/75 transition hover:border-[#e00016] hover:text-[#e00016]"><Icon name="whatsapp" size={19} /></a>
+            <a href={whatsAppLink(whatsAppMessages.general)} target="_blank" rel="noreferrer" aria-label="Message RIT TRANZ on WhatsApp" className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/75 transition hover:border-[#e00016] hover:text-[#e00016]"><Icon name="whatsapp" size={19} /></a>
           </div>
         </div>
       </div>

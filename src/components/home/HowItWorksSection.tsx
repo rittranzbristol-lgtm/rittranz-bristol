@@ -1,3 +1,5 @@
+import { whatsAppMessages } from "../../data/site";
+import { whatsAppLink } from "../../utils/whatsapp";
 import Icon from "../icons/Icon";
 
 export default function HowItWorksSection() {
@@ -10,7 +12,7 @@ export default function HowItWorksSection() {
             <source media="(max-width: 639px)" srcSet="/assets/how-it-works-phone.jpg" />
             <img className="absolute inset-0 h-full w-full object-cover" src="/assets/how-it-works-desktop.jpg" alt="RIT TRANZ van on a narrow street by St Nicholas Markets, Bristol" loading="lazy" />
           </picture>
-          <a href="https://wa.me/447584201972" target="_blank" rel="noreferrer" className="group absolute bottom-5 left-5 right-5 rounded-2xl bg-white p-5 text-[#071a3d] shadow-xl transition hover:-translate-y-1 hover:bg-[#e00016] hover:text-white sm:right-auto sm:w-[310px]" aria-label="Message RIT TRANZ on WhatsApp for a same-day slot">
+          <a href={whatsAppLink(whatsAppMessages.sameDay)} target="_blank" rel="noreferrer" className="group absolute bottom-5 left-5 right-5 rounded-2xl bg-white p-5 text-[#071a3d] shadow-xl transition hover:-translate-y-1 hover:bg-[#e00016] hover:text-white sm:right-auto sm:w-[310px]" aria-label="Message RIT TRANZ on WhatsApp for a same-day slot">
             <div className="flex items-center gap-3">
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#e00016] text-white transition group-hover:bg-white group-hover:text-[#071a3d]"><Icon name="whatsapp" size={22} /></span>
               <div><strong className="block text-base">Need us today?</strong><span className="mt-1 block text-sm font-semibold text-[#465269] transition group-hover:text-white">Message us on WhatsApp</span></div>

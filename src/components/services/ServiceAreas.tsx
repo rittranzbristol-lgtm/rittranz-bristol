@@ -1,4 +1,6 @@
+import { Link } from "react-router";
 import { serviceAreas } from "../../data/services";
+import { quoteFormPath } from "../../data/site";
 
 export default function ServiceAreas() {
   return (
@@ -27,9 +29,9 @@ export default function ServiceAreas() {
                   </li>
                 ))}
               </ul>
-              <a href="https://wa.me/447584201972" target="_blank" rel="noreferrer" className="mt-auto pt-7 text-sm font-bold text-[#ff5968] transition hover:text-white">
+              <Link to={quoteFormPath} className="mt-auto pt-7 text-sm font-bold text-[#ff5968] transition hover:text-white">
                 Message us for a custom quote →
-              </a>
+              </Link>
             </article>
           ))}
         </div>

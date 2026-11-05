@@ -21,7 +21,7 @@ export default function CoverageSection() {
             <div className="flex flex-wrap gap-2">
               {coverage.map((area) => <span key={area} className="rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-bold">{area}</span>)}
             </div>
-            <a href="https://wa.me/447584201972" target="_blank" rel="noreferrer" className="mt-4 flex w-full items-center justify-center gap-3 rounded-xl bg-[#e00016] px-5 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#071a3d]">Get a quote for your area <Icon name="arrow" size={18} /></a>
+            <a href="#quote" className="mt-4 flex w-full items-center justify-center gap-3 rounded-xl bg-[#e00016] px-5 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#071a3d]">Get a quote for your area <Icon name="arrow" size={18} /></a>
           </div>
         </div>
       </div>

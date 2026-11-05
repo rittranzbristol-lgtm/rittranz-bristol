@@ -1,5 +1,6 @@
 import { FormEvent } from "react";
-import { formatDate, openWhatsApp } from "../../utils/whatsapp";
+import { whatsAppMessages } from "../../data/site";
+import { formatDate, openWhatsApp, whatsAppLink } from "../../utils/whatsapp";
 import ArrowIcon from "../icons/ArrowIcon";
 import WhatsAppIcon from "../icons/WhatsAppIcon";
 
@@ -32,12 +33,12 @@ export default function ContactFormSection() {
           <div className="mt-8 rounded-2xl bg-[#071a3d] p-6 text-white">
             <span className="text-[10px] font-bold tracking-[0.15em] text-[#ff5968]">PREFER WHATSAPP?</span>
             <p className="mt-3 text-sm leading-6 text-white/65">Send your postcodes, a list of items and a few photos directly. We normally reply within minutes during working hours.</p>
-            <a href="https://wa.me/447584201972" className="mt-5 flex items-center justify-between rounded-xl bg-[#e00016] px-5 py-4 text-sm font-bold">Open WhatsApp <ArrowIcon /></a>
+            <a href={whatsAppLink(whatsAppMessages.jobDetails)} className="mt-5 flex items-center justify-between rounded-xl bg-[#e00016] px-5 py-4 text-sm font-bold">Open WhatsApp <ArrowIcon /></a>
           </div>
           <p className="mt-4 text-xs leading-5 text-[#697386]">No payment is taken through this form. We confirm availability and price with you first.</p>
         </aside>
 
-        <form onSubmit={submit} className="rounded-[28px] border border-[#dfe4ec] bg-white p-7 shadow-xl shadow-[#071a3d]/5 sm:p-9">
+        <form id="quote" onSubmit={submit} className="rounded-[28px] border border-[#dfe4ec] bg-white p-7 shadow-xl shadow-[#071a3d]/5 sm:p-9">
           <div className="mb-8 flex items-start justify-between border-b border-[#dfe4ec] pb-6">
             <div><span className="text-[10px] font-bold tracking-[0.16em] text-[#d10014]">QUICK QUOTE FORM</span><h2 className="mt-2 text-3xl font-semibold">Tell us what needs moving</h2></div>
             <span className="grid h-10 w-10 place-items-center rounded-full bg-[#f2f5fa] text-sm font-bold text-[#d10014]">01</span>

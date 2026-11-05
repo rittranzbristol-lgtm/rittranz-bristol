@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+import { quoteFormPath } from "../../data/site";
 import WhatsAppIcon from "../icons/WhatsAppIcon";
 
 export default function AboutHero() {
@@ -10,7 +12,7 @@ export default function AboutHero() {
             <p className="text-xs font-bold tracking-[0.18em] text-[#ff5968]">LOCAL SERVICE, HANDLED PERSONALLY</p>
             <h1 className="mt-5 text-5xl font-semibold leading-[1.02] tracking-[-0.055em] sm:text-7xl">About Rit Tranz</h1>
             <p className="mt-6 text-base leading-8 text-white/75 sm:text-lg">A Bristol-based man and van service built on reliability, honest prices, and care for every item—from a single sofa to a full student move.</p>
-            <a href="https://wa.me/447584201972" target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#e00016] px-7 py-4 text-sm font-bold text-white shadow-xl shadow-black/20 transition hover:bg-white hover:text-[#071a3d]"><WhatsAppIcon /> Get a quote on WhatsApp for a quick reply</a>
+            <Link to={quoteFormPath} className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#e00016] px-7 py-4 text-sm font-bold text-white shadow-xl shadow-black/20 transition hover:bg-white hover:text-[#071a3d]"><WhatsAppIcon /> Get a quote on WhatsApp for a quick reply</Link>
           </div>
         </div>
         <div className="relative min-h-[500px] overflow-hidden lg:min-h-[620px]">

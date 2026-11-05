@@ -9,7 +9,7 @@ import Shell from "../components/layout/Shell";
 export default function ContactPage() {
   return (
     <Shell>
-    <PageHero eyebrow="GET A FREE QUOTE" title="Give us the route. We’ll work out the move." intro="Share the key details and continue on WhatsApp. Clear information helps us return a fast, accurate, no-obligation quote." />
+    <PageHero padding="py-8 sm:py-10" eyebrow="GET A FREE QUOTE" title="Give us the route. We’ll work out the move." intro="Share the key details and continue on WhatsApp. Clear information helps us return a fast, accurate, no-obligation quote." />
       <ContactMethods />
       <ContactFormSection />
       <QuoteChecklist />

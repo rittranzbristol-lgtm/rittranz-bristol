@@ -11,7 +11,7 @@ export default function CtaBanner() {
         </div>
         <div className="flex flex-wrap gap-3">
           <a href="tel:+447584201972" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-4 text-sm font-bold text-[#d10014] transition hover:bg-[#071a3d] hover:text-white"><Icon name="phone" size={18} /> 07584 201972</a>
-          <a href="/contact" className="inline-flex items-center gap-3 rounded-full bg-[#071a3d] px-7 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#d10014]">Get your free quote <Icon name="arrow" size={18} /></a>
+          <a href="#quote" className="inline-flex items-center gap-3 rounded-full bg-[#071a3d] px-7 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#d10014]">Get your free quote <Icon name="arrow" size={18} /></a>
         </div>
       </div>
     </section>

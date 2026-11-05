@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { plans } from "../../data/pricing";
+import { quoteFormPath } from "../../data/site";
 
 export default function PricingPlans() {
   return (
@@ -46,7 +47,7 @@ export default function PricingPlans() {
                 </p>
               )}
               <div className="mt-auto pt-8">
-                <Link to="/contact" className="flex items-center justify-center rounded-full bg-[#020f2d] px-5 py-4 text-sm font-bold text-white transition hover:bg-[#e00016]">Request this service</Link>
+                <Link to={quoteFormPath} className="flex items-center justify-center rounded-full bg-[#020f2d] px-5 py-4 text-sm font-bold text-white transition hover:bg-[#e00016]">Request this service</Link>
               </div>
             </article>
           ))}
