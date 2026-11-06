@@ -9,10 +9,9 @@ export default function CtaBanner() {
           <h2 className="mt-2 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">Let&apos;s get you moving.</h2>
           <p className="mt-3 text-sm font-medium text-white">Free quote · No obligation · Replies in minutes.</p>
         </div>
-        {/* Hovering either button swaps both colours, so the two never match. */}
-        <div className="group flex flex-wrap gap-3">
-          <a href="tel:+447584201972" className="inline-flex items-center gap-2 rounded-full bg-[#071a3d] px-6 py-4 text-sm font-bold text-white group-has-[a:hover]:bg-white group-has-[a:hover]:text-[#d10014]"><Icon name="phone" size={18} /> 07584 201972</a>
-          <a href="#quote" className="inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-bold text-[#d10014] group-has-[a:hover]:bg-[#071a3d] group-has-[a:hover]:text-white">Get your free quote <Icon name="arrow" size={18} /></a>
+        <div className="flex flex-wrap gap-3">
+          <a href="tel:+447584201972" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-4 text-sm font-bold text-[#d10014] transition hover:bg-[#071a3d] hover:text-white"><Icon name="phone" size={18} /> 07584 201972</a>
+          <a href="#quote" className="inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-bold text-[#d10014] transition hover:bg-[#071a3d] hover:text-white">Get your free quote <Icon name="arrow" size={18} /></a>
         </div>
       </div>
     </section>
