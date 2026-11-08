@@ -25,7 +25,7 @@ export const services = [
   {
     id: "waste-clearance",
     icon: "waste" as IconName,
-    title: "Licensed waste clearance",
+    title: "Licensed Waste Clearance",
     description: "Responsible, Environment Agency-licensed clearance for cardboard, unwanted furniture, household waste, and green waste.",
     price: "£80",
     priceExtra: "Micro loads start from £60",
@@ -36,7 +36,7 @@ export const services = [
   {
     id: "self-storage",
     icon: "box" as IconName,
-    title: "Self-storage moves",
+    title: "Self-Storage Moves",
     description: "Stress-free transport to and from self-storage units. Handled by a solo driver, with your help required for loading heavy items.",
     price: "£40",
     unit: "/ hour",
