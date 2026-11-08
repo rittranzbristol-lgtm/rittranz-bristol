@@ -5,7 +5,7 @@ export const services = [
   {
     id: "home-moves",
     icon: "home" as IconName,
-    title: "Home & flat moves",
+    title: "Home & Flat Moves",
     description: "Careful, efficient moves for flats, small houses, and student accommodation across Bristol.",
     price: "£40",
     unit: "/ hour",
@@ -15,7 +15,7 @@ export const services = [
   {
     id: "store-pickups",
     icon: "store" as IconName,
-    title: "Store & item pickups",
+    title: "Store & Single Item pickups",
     description: "Fast local collections from Facebook Marketplace, IKEA, B&Q, and private sellers delivered straight to your door.",
     price: "£35",
     unit: "from",
