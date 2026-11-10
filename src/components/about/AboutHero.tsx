@@ -6,7 +6,7 @@ export default function AboutHero() {
   return (
     <section className="relative overflow-hidden bg-[#071a3d] text-white">
       <div className="page-hero-pattern absolute inset-0 opacity-20" />
-      <div className="relative mx-auto grid min-h-[620px] max-w-[1440px] lg:grid-cols-2">
+      <div className="relative mx-auto grid max-w-[1440px] sm:min-h-[620px] lg:grid-cols-2">
         <div className="flex items-center px-5 py-20 sm:px-8 sm:py-24 lg:px-14 xl:pl-24 xl:pr-16">
           <div className="max-w-[650px]">
             <p className="text-xs font-bold tracking-[0.18em] text-[#ff5968]">LOCAL SERVICE, HANDLED PERSONALLY</p>
@@ -15,7 +15,8 @@ export default function AboutHero() {
             <Link to={quoteFormPath} className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#e00016] px-7 py-4 text-sm font-bold text-white shadow-xl shadow-black/20 transition hover:bg-white hover:text-[#071a3d]"><WhatsAppIcon /> Get a quote on WhatsApp for a quick reply</Link>
           </div>
         </div>
-        <div className="relative min-h-[500px] overflow-hidden lg:min-h-[620px]">
+        {/* Hidden on phones so the text is the whole hero. */}
+        <div className="relative hidden min-h-[500px] overflow-hidden sm:block lg:min-h-[620px]">
           {/* Phones get a portrait crop; tablets and desktops get the wider one. */}
           <picture>
             <source media="(max-width: 639px)" srcSet="/assets/about-hero-phone.jpg" />

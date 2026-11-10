@@ -1,4 +1,5 @@
-import { whatsAppMessages } from "../../data/site";
+import { Link } from "react-router";
+import { quoteFormPath, whatsAppMessages } from "../../data/site";
 import { whatsAppLink } from "../../utils/whatsapp";
 import Icon from "../icons/Icon";
 
@@ -36,7 +37,7 @@ export default function HowItWorksSection() {
             ))}
           </div>
           <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-            <a href="#quote" className="inline-flex items-center gap-3 rounded-full bg-[#e00016] px-7 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#071a3d]">Start your quote <Icon name="arrow" size={18} /></a>
+            <Link to={quoteFormPath} className="inline-flex items-center gap-3 rounded-full bg-[#e00016] px-7 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#071a3d]">Start your quote <Icon name="arrow" size={18} /></Link>
             <p className="whitespace-nowrap text-xs font-semibold leading-5 text-white/75 sm:text-sm">Free quote&nbsp;&nbsp;·&nbsp;&nbsp;No obligation&nbsp;&nbsp;·&nbsp;&nbsp;Replies in minutes.</p>
           </div>
         </div>

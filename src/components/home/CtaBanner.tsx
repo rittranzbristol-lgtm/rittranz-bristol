@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+import { quoteFormPath } from "../../data/site";
 import Icon from "../icons/Icon";
 
 export default function CtaBanner() {
@@ -11,7 +13,7 @@ export default function CtaBanner() {
         </div>
         <div className="flex flex-wrap gap-3">
           <a href="tel:+447584201972" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-4 text-sm font-bold text-[#d10014] transition hover:bg-[#071a3d] hover:text-white"><Icon name="phone" size={18} /> 07584 201972</a>
-          <a href="#quote" className="inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-bold text-[#d10014] transition hover:bg-[#071a3d] hover:text-white">Get your free quote <Icon name="arrow" size={18} /></a>
+          <Link to={quoteFormPath} className="inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-bold text-[#d10014] transition hover:bg-[#071a3d] hover:text-white">Get your free quote <Icon name="arrow" size={18} /></Link>
         </div>
       </div>
     </section>

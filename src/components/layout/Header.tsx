@@ -10,8 +10,6 @@ import HeaderStrip from "./HeaderStrip";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
-  // The home page has its own quote form, so its button stays on the page.
-  const quoteLink = pathname === "/" ? "/#quote" : quoteFormPath;
 
   // A link to the page you're already on goes back to the top of it.
   function followLink(path: string) {
@@ -45,7 +43,7 @@ export default function Header() {
           <a href="tel:+447584201972" className="flex items-center gap-2 text-[15px] font-semibold transition hover:text-[#e00016]">
             <Icon name="phone" size={19} /> 07584 201972
           </a>
-          <Link to={quoteLink} className="rounded-full bg-[#e00016] px-5 py-3 text-[15px] font-bold text-white shadow-lg shadow-black/15 transition hover:bg-white hover:text-[#071a3d]">Get a free quote</Link>
+          <Link to={quoteFormPath} className="rounded-full bg-[#e00016] px-5 py-3 text-[15px] font-bold text-white shadow-lg shadow-black/15 transition hover:bg-white hover:text-[#071a3d]">Get a free quote</Link>
         </div>
 
         <button onClick={() => setOpen(!open)} className="grid h-11 w-11 place-items-center rounded-full border border-[#dfe4ec] lg:hidden" aria-label="Toggle menu">
@@ -62,7 +60,7 @@ export default function Header() {
             <a href={facebookUrl} target="_blank" rel="noreferrer" aria-label="RIT TRANZ on Facebook" className="grid h-10 w-10 place-items-center rounded-full bg-[#f2f5fa]"><SocialIcon network="facebook" size={20} /></a>
             <a href={instagramUrl} target="_blank" rel="noreferrer" aria-label="RIT TRANZ on Instagram" className="grid h-10 w-10 place-items-center rounded-full bg-[#f2f5fa]"><SocialIcon network="instagram" size={20} /></a>
           </div>
-          <Link to={quoteLink} onClick={() => setOpen(false)} className="mt-4 block rounded-full bg-[#e00016] px-5 py-3 text-center text-[15px] font-bold text-white">Get a free quote</Link>
+          <Link to={quoteFormPath} onClick={() => setOpen(false)} className="mt-4 block rounded-full bg-[#e00016] px-5 py-3 text-center text-[15px] font-bold text-white">Get a free quote</Link>
         </nav>
       )}
     </header>

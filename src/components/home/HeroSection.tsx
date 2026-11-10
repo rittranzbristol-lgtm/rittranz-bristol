@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { googleBusinessUrl } from "../../data/site";
+import { googleBusinessUrl, quoteFormPath } from "../../data/site";
 import Icon from "../icons/Icon";
 import PromisesBar from "./PromisesBar";
 import QuoteForm from "./QuoteForm";
@@ -32,9 +32,9 @@ export default function HeroSection() {
             Hassle-free, on-time van service across Bristol. Your belongings are protected with sturdy moving blankets and secure straps, while you deal directly with your driver.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <a href="#quote" className="inline-flex items-center gap-3 rounded-full bg-[#e00016] px-7 py-4 text-sm font-bold text-white shadow-xl shadow-black/15 transition hover:bg-white hover:text-[#071a3d]">
+            <Link to={quoteFormPath} className="inline-flex items-center gap-3 rounded-full bg-[#e00016] px-7 py-4 text-sm font-bold text-white shadow-xl shadow-black/15 transition hover:bg-white hover:text-[#071a3d]">
               Get a free quote <Icon name="arrow" size={18} />
-            </a>
+            </Link>
             <Link to="/services#services" className="inline-flex items-center gap-3 rounded-full border border-white/35 bg-white/5 px-7 py-4 text-sm font-bold backdrop-blur-sm transition hover:bg-white hover:text-[#071a3d]">
               Explore services
             </Link>

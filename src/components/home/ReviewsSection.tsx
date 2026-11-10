@@ -1,4 +1,5 @@
-import { googleBusinessUrl } from "../../data/site";
+import { Link } from "react-router";
+import { googleBusinessUrl, quoteFormPath } from "../../data/site";
 import GoogleIcon from "../icons/GoogleIcon";
 import Icon from "../icons/Icon";
 
@@ -35,7 +36,7 @@ export default function ReviewsSection() {
           ))}
         </div>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 rounded-2xl bg-[#f2f5fa] p-6 text-center sm:flex-row sm:gap-6">
-          <a href="#quote" className="inline-flex items-center gap-3 rounded-full bg-[#e00016] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#071a3d]">Get your free quote <Icon name="arrow" size={18} /></a>
+          <Link to={quoteFormPath} className="inline-flex items-center gap-3 rounded-full bg-[#e00016] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#071a3d]">Get your free quote <Icon name="arrow" size={18} /></Link>
           <p className="text-sm font-bold text-[#465269]">Join our happy Bristol customers.</p>
         </div>
       </div>

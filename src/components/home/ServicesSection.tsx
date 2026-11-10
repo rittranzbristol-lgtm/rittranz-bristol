@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { services } from "../../data/home";
+import { quoteFormPath } from "../../data/site";
 import Icon from "../icons/Icon";
 
 export default function ServicesSection() {
@@ -36,7 +37,7 @@ export default function ServicesSection() {
             <p className="text-base font-bold">No hidden fees. Final price confirmed before booking.</p>
             <a href="/terms" className="mt-2 inline-flex text-sm font-semibold text-[#ff5968] underline decoration-[#ff5968]/40 underline-offset-4 transition hover:text-white">Customer loading assistance may be required</a>
           </div>
-          <a href="#quote" className="inline-flex shrink-0 items-center gap-3 rounded-full bg-[#e00016] px-6 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#071a3d]">Get a free quote on WhatsApp <Icon name="arrow" size={18} /></a>
+          <Link to={quoteFormPath} className="inline-flex shrink-0 items-center gap-3 rounded-full bg-[#e00016] px-6 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#071a3d]">Get a free quote on WhatsApp <Icon name="arrow" size={18} /></Link>
         </div>
       </div>
     </section>

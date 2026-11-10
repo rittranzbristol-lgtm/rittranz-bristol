@@ -1,4 +1,6 @@
+import { Link } from "react-router";
 import { coverage } from "../../data/home";
+import { quoteFormPath } from "../../data/site";
 import Icon from "../icons/Icon";
 
 export default function CoverageSection() {
@@ -21,7 +23,7 @@ export default function CoverageSection() {
             <div className="flex flex-wrap gap-2">
               {coverage.map((area) => <span key={area} className="rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-bold">{area}</span>)}
             </div>
-            <a href="#quote" className="mt-4 flex w-full items-center justify-center gap-3 rounded-xl bg-[#e00016] px-5 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#071a3d]">Get a quote for your area <Icon name="arrow" size={18} /></a>
+            <Link to={quoteFormPath} className="mt-4 flex w-full items-center justify-center gap-3 rounded-xl bg-[#e00016] px-5 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-[#071a3d]">Get a quote for your area <Icon name="arrow" size={18} /></Link>
           </div>
         </div>
       </div>

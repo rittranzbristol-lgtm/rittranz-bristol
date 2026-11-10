@@ -1,7 +1,7 @@
 export const navItems = [["Home", "/"], ["Services", "/services"], ["Pricing", "/pricing"], ["About", "/about"], ["Contact", "/contact"]];
 export const facebookUrl = "https://www.facebook.com/rittranz";
 export const instagramUrl = "https://www.instagram.com/rittranz/";
-// The quote form on the Contact page, for pages that have no form of their own
+// Where every "Get a free quote" button goes: the quote form on the Contact page
 export const quoteFormPath = "/contact#quote";
 // Pre-filled first message for each WhatsApp link, chosen to fit where the link sits
 export const whatsAppMessages = {

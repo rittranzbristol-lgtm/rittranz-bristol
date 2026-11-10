@@ -23,7 +23,7 @@ export default function ContactMap() {
             <h2 className="mt-4 text-3xl font-semibold">Ask a service question.</h2>
             <p className="mt-4 text-sm leading-6 text-white/55">Not ready to request a quote? Tell us what you are considering and we will point you toward the right option.</p>
             <ul className="mt-6 space-y-3 text-sm text-white/75"><li>— Bristol and all BS postcodes</li><li>— Pill, Portishead and surrounding areas</li><li>— Local moves and wider UK transport</li></ul>
-            <a href={whatsAppLink(whatsAppMessages.question)} className="mt-8 flex items-center justify-between rounded-xl bg-[#e00016] px-5 py-4 text-sm font-bold"><span className="flex items-center gap-3"><WhatsAppIcon /> WhatsApp for a quick answer</span><ArrowIcon /></a>
+            <a href={whatsAppLink(whatsAppMessages.question)} target="_blank" rel="noreferrer" className="mt-8 flex items-center justify-between rounded-xl bg-[#e00016] px-5 py-4 text-sm font-bold"><span className="flex items-center gap-3"><WhatsAppIcon /> WhatsApp for a quick answer</span><ArrowIcon /></a>
           </div>
         </div>
       </div>

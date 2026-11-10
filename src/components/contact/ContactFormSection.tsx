@@ -33,7 +33,7 @@ export default function ContactFormSection() {
           <div className="mt-8 rounded-2xl bg-[#071a3d] p-6 text-white">
             <span className="text-[10px] font-bold tracking-[0.15em] text-[#ff5968]">PREFER WHATSAPP?</span>
             <p className="mt-3 text-sm leading-6 text-white/65">Send your postcodes, a list of items and a few photos directly. We normally reply within minutes during working hours.</p>
-            <a href={whatsAppLink(whatsAppMessages.jobDetails)} className="mt-5 flex items-center justify-between rounded-xl bg-[#e00016] px-5 py-4 text-sm font-bold">Open WhatsApp <ArrowIcon /></a>
+            <a href={whatsAppLink(whatsAppMessages.jobDetails)} target="_blank" rel="noreferrer" className="mt-5 flex items-center justify-between rounded-xl bg-[#e00016] px-5 py-4 text-sm font-bold">Open WhatsApp <ArrowIcon /></a>
           </div>
           <p className="mt-4 text-xs leading-5 text-[#697386]">No payment is taken through this form. We confirm availability and price with you first.</p>
         </aside>
